@@ -3,6 +3,7 @@ package container
 import (
 	"time"
 
+	"github.com/docker/engine-api/types/secret"
 	"github.com/docker/engine-api/types/strslice"
 	"github.com/docker/go-connections/nat"
 )
@@ -59,4 +60,5 @@ type Config struct {
 	StopSignal      string                `json:",omitempty"` // Signal to stop a container
 	StopTimeout     *int                  `json:",omitempty"` // Timeout (in seconds) to stop a container
 	Shell           strslice.StrSlice     `json:",omitempty"` // Shell for shell-form of RUN, CMD, ENTRYPOINT
+	Secrets         []secret.Secret       `json:",omitempty"` // Secrets requested by the container
 }
